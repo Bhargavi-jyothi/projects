@@ -1,0 +1,53 @@
+{% extends 'users/userbase.html'%}
+{% load static %}
+{% block content %}
+<style>
+    h1 {
+        text-align: center;
+        padding-top: 10rem;
+    }
+    table td {
+        border: 2px solid burlywood;
+        width: 100px;
+        margin-right: auto;
+        margin-right: auto;
+        padding-left: 100px;
+    }
+    thead  {
+        border: 3px solid green;
+    }
+</style>
+<div class="container">
+    <center>
+        <table class="text-center text-white">
+            <thead>
+            <tr>
+                <th>Model Name</th>
+                <th>Accuracy</th>
+                <th>Classification Report</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><th>Random Forest</th>
+                <td>{{rf_acc}}</td>
+                <td> {{rf|safe}}</td>
+            </tr>
+             <tr><th>MLP</th>
+                <td>{{mlp_acc}}</td>
+                <td> {{mlp|safe}}</td>
+            </tr>
+              <tr><th>C4.5</th>
+                <td>{{c45_acc}}</td>
+                <td> {{c45|safe}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </center>
+    
+
+   
+</div>
+{% endblock %}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% extends 'users/userbase.html'%}
+{% load static %}
+{% block content %}
+<html lang="en">
+<style>
+	h1 {
+		text-align: center;
+		color:black;
+		padding-top: 150px;
+	}
+	.container{
+		border-radius: 6px ;
+	}
+</style>
+<style> 
+	input[type=button], input[type=submit], input[type=reset] {
+	  background-color: #04AA6D;
+	  border: none;
+	  color: white;
+	  padding: 16px 32px;
+	  text-decoration: none;
+	  margin: 4px 2px;
+	  cursor: pointer;
+	}
+
+	</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 style="color: aqua;">Student Performance</h1>
+	<div class="container" style="width: 505px">
+		<div class="jumbotron" style="background:black">
+			<form action="{% url 'prediction_form' %}" method="POST" class="text-primary" style="width: 100%;" ALIGN="center" >
+				{% csrf_token %}
+				<label>Gender</label></br>
+				<select name="Gender">
+					<option value=0>Male</option>
+					<option value=1>Female</option>
+				</select></br>
+				<label><b>Raisehands<b></label><br>
+				<input type="number" name="raisehands" placeholder="0-100" min="0" max="100"><br><br>
+				<label><b>VisITedResources<b></label><br>
+				<input type="number" name="VisITedResources" placeholder="0-100" min="0" max="100"><br><br>
+				<label><b>Announcements View</b></label><br>
+				<input type="number" name="AnnouncementsView" placeholder="0-100" min="0" max="600"><br><br>
+				<label><b>Discussion</b></label><br>
+				<input type="number" name="Discussion" placeholder="0-100" min="0" max="600"><br><br>
+
+
+				<label><b>StageID</b></label><br>
+				<select name="StageID" required>
+					<option value="">--Select StageID--</option>
+					<option value="StageID_HighSchool">StageID_HighSchool</option>
+					<option value="StageID_MiddleSchool">StageID_MiddleSchool </option>
+					<option value="StageID_lowerlevel">StageID_lowerlevel</option>
+				</select> <br><br>
+				<label><b>GradeID</b></label><br>
+				<select name="GradeID" required>
+					<option value="">--Select GradeID--</option>
+					<option value="GradeID_G-02">GradeID_G-02</option>
+					<option value="GradeID_G-04">GradeID_G-04 </option>
+					<option value="GradeID_G-05">GradeID_G-05</option>
+					<option value="GradeID_G-06">GradeID_G-06</option>
+					<option value="GradeID_G-07">GradeID_G-07</option>
+					<option value="GradeID_G-08">GradeID_G-08</option>
+					<option value="GradeID_G-09">GradeID_G-09</option>
+					<option value="GradeID_G-10">GradeID_G-10</option>
+					<option value="GradeID_G-11">GradeID_G-11</option>
+					<option value="GradeID_G-12">GradeID_G-12</option>
+				</select> <br><br>
+				<label><b>Parent Answering</b></label><br>
+				<select name="ParentAnswering" required>
+					<option value="">--Select Parent Answering--</option>
+					<option value="ParentAnsweringSurvey_No">ParentAnsweringSurvey_No</option>
+					<option value="ParentAnsweringSurvey_Yes">ParentAnsweringSurvey_Yes</option>
+				</select> <br><br>
+				<label><b>ParentschoolSatisfaction</b></label><br>
+				<select name="ParentschoolSatisfaction" required>
+					<option value="">--Select ParentschoolSatisfaction--</option>
+					<option value="ParentschoolSatisfaction_Bad">ParentschoolSatisfaction_Bad</option>
+					<option value="ParentschoolSatisfaction_Good">ParentschoolSatisfaction_Good</option>
+				</select> <br><br>
+				<select name="StudentAbsenceDays" required>
+					<option value="">--Select StudentAbsenceDays--</option>
+					<option value="StudentAbsenceDays_Above-7">StudentAbsenceDays_Above-7</option>
+					<option value="StudentAbsenceDays_Under-7">StudentAbsenceDays_Under-7</option>
+				</select> <br><br>
+
+				<input type="Submit" class="btn btn-primary btn-lg"value="Predict">
+		
+			</form>
+		</div>
+	</div>
+    
+	<h3 style="text-align: center;">Prediction Result is: {{msg}}</h3>
+</body>
+</html>
+{%endblock%}

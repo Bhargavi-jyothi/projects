@@ -1,0 +1,49 @@
+{% extends 'users/userbase.html'%}
+{% load static %}
+{% block content %}
+<style>
+    h1 {
+        text-align: center;
+        padding-top: 10rem;
+    }
+    table td {
+        border: 2px solid burlywood;
+        width: 100px;
+        margin-right: auto;
+        margin-right: auto;
+        padding-left: 100px;
+    }
+    thead  {
+        border: 3px solid green;
+    }
+</style>
+<div class="container">
+    <center>
+        <table class="text-center text-white">
+            <thead>
+            <tr>
+                <th>Model Name</th>
+                <th>Accuracy</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <th>RBF + MLP</th>
+                <td>{{hyb1}}</td>
+            </tr>
+            <tr>
+                <th>RF + C4.5</th>
+                <td>{{hyb2}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </center>
+    
+
+   
+</div>
+{% endblock %}
